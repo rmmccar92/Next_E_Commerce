@@ -2,6 +2,7 @@ const data = {
   products: [
     {
       name: "Block",
+      slug: "block",
       category: "Toy",
       image: "/images/alphabet-blocks.jpg",
       price: 10,
@@ -13,6 +14,7 @@ const data = {
     },
     {
       name: "Bedtime Book",
+      slug: "bedtime-book",
       category: "Books",
       image: "/images/bedtime-book.jpg",
       price: 12,
@@ -24,6 +26,7 @@ const data = {
     },
     {
       name: "Camera",
+      slug: "camera",
       category: "Photography",
       image: "/images/camera.jpg",
       price: 350,
@@ -35,6 +38,7 @@ const data = {
     },
     {
       name: "Coffee",
+      slug: "coffee",
       category: "Pantry",
       image: "/images/canned-coffee.jpg",
       price: 5,
@@ -46,6 +50,7 @@ const data = {
     },
     {
       name: "Cookie Tin",
+      slug: "cookie-tin",
       category: "Pantry",
       image: "/images/cookie-tin.jpg",
       price: 3,
@@ -57,6 +62,7 @@ const data = {
     },
     {
       name: "Horse Toy",
+      slug: "horse-toy",
       category: "Toy",
       image: "/images/plastic-horses.jpg",
       price: 4000.03,
@@ -68,6 +74,7 @@ const data = {
     },
     {
       name: "Soap",
+      slug: "soap",
       category: "Bathroom",
       image: "/images/soap.jpg",
       price: 1,
@@ -79,6 +86,7 @@ const data = {
     },
     {
       name: "Top",
+      slug: "top",
       category: "Toys",
       image: "/images/spinning-top.jpg",
       price: 1.75,
@@ -90,6 +98,7 @@ const data = {
     },
     {
       name: "Tablet",
+      slug: "tablet",
       category: "Electronics",
       image: "/images/tablet.jpg",
       price: 1000,
@@ -101,6 +110,7 @@ const data = {
     },
     {
       name: "Teddy Bear",
+      slug: "teddy-bear",
       category: "Toys",
       image: "/images/teddy-bear.jpg",
       price: 10,
@@ -112,6 +122,7 @@ const data = {
     },
     {
       name: "Toilet Paper",
+      slug: "toilet-paper",
       category: "Bathroom",
       image: "/images/toilet-paper.jpg",
       price: 1000,
@@ -123,6 +134,7 @@ const data = {
     },
     {
       name: "Wooden Spoons",
+      slug: "wooden-spoons",
       category: "Utensils",
       image: "/images/wooden-spoons.jpg",
       price: 4.5,
