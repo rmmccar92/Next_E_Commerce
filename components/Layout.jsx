@@ -21,8 +21,8 @@ export default function Layout({ title, description, children }) {
   const { darkMode } = state;
   const [mode, setMode] = useState(false);
   useEffect(() => {
-    setMode(darkMode), [darkMode];
-  });
+    setMode(darkMode);
+  }, [darkMode]);
   const theme = createTheme({
     typography: {
       h1: {
