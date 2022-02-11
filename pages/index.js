@@ -9,7 +9,6 @@ import {
   Typography,
   CardActions,
   Button,
-  Link,
 } from "@material-ui/core";
 import NextLink from "next/link";
 
