@@ -16,11 +16,17 @@ const useStyles = makeStyles({
     minHeight: "80vh",
   },
   footer: {
+    marginTop: 20,
     textAlign: "center",
   },
   brand: {
     fontSize: "1.5rem",
     fontWeight: "bold",
+  },
+  section: {
+    marginBottom: 20,
+    marginTop: 20,
+    textAlign: "center",
   },
 });
 export default useStyles;
