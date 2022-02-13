@@ -1,5 +1,4 @@
 import { useContext } from "react";
-
 import Layout from "../../components/Layout";
 import NextLink from "next/link";
 import {
@@ -17,9 +16,9 @@ import db from "../../utils/db";
 import Product from "../../models/Products";
 import axios from "axios";
 import { Store } from "../../utils/store";
+import Router from "next/router";
 export default function ProductPage(props) {
-  const { state, dispatch } = useContext(Store);
-  const { cart } = state;
+  const { dispatch } = useContext(Store);
   const { product } = props;
   const classes = useStyles();
 
@@ -37,6 +36,7 @@ export default function ProductPage(props) {
       window.alert("Out of stock");
     }
     dispatch({ type: "ADD_TO_CART", payload: { ...product, quantity: 1 } });
+    Router.push("/cart");
   };
 
   return (
