@@ -15,13 +15,14 @@ import {
   TableRow,
   Typography,
 } from "@material-ui/core";
+import dynamic from "next/dynamic";
 import React, { useContext } from "react";
 import Layout from "../components/Layout";
 import { Store } from "../utils/store";
 import NextLink from "next/link";
 import Image from "next/image";
 
-export default function CartPage() {
+function CartPage() {
   const { state } = useContext(Store);
   const {
     cart: { cartItems },
@@ -95,7 +96,7 @@ export default function CartPage() {
               </Table>
             </TableContainer>
           </Grid>
-          <Grid md={3} xs={12}>
+          <Grid item md={3} xs={12}>
             <Card>
               <List>
                 <ListItem>
@@ -118,3 +119,5 @@ export default function CartPage() {
     </Layout>
   );
 }
+
+export default dynamic(() => Promise.resolve(CartPage), { ssr: false });
