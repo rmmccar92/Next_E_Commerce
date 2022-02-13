@@ -21,12 +21,27 @@ import Layout from "../components/Layout";
 import { Store } from "../utils/store";
 import NextLink from "next/link";
 import Image from "next/image";
+import axios from "axios";
 
 function CartPage() {
-  const { state } = useContext(Store);
+  const { state, dispatch } = useContext(Store);
   const {
     cart: { cartItems },
   } = state;
+
+  const updateCartHandler = async (item, quantity) => {
+    const { data } = await axios.get(`/api/products/${item._id}`);
+    if (data.countInStock < quantity) {
+      // Change this to not use alert
+      window.alert("Out of stock");
+      return;
+    }
+    dispatch({ type: "ADD_TO_CART", payload: { ...item, quantity } });
+  };
+
+  const handleDelete = async (item) => {
+    dispatch({ type: "DELETE_FROM_CART", payload: item });
+  };
   return (
     <Layout title="Shopping Cart">
       <Typography component="h1" variant="h1">
@@ -35,8 +50,12 @@ function CartPage() {
       {cartItems.length === 0 ? (
         <div>
           {" "}
-          <Typography>Your cart is empty.</Typography>{" "}
-          <NextLink href="/">Explore More Items</NextLink>
+          <Typography>
+            Your cart is empty.{" "}
+            <NextLink href="/" passHref>
+              <Link>Explore More Items</Link>
+            </NextLink>
+          </Typography>{" "}
         </div>
       ) : (
         <Grid container spacing={1}>
@@ -76,7 +95,12 @@ function CartPage() {
                         </NextLink>
                       </TableCell>
                       <TableCell align="right">
-                        <Select value={item.quantity}>
+                        <Select
+                          value={item.quantity}
+                          onChange={(event) =>
+                            updateCartHandler(item, event.target.value)
+                          }
+                        >
                           {[...Array(item.countInStock).keys()].map((item) => (
                             <MenuItem key={item + 1} value={item + 1}>
                               {item + 1}
@@ -86,7 +110,11 @@ function CartPage() {
                       </TableCell>
                       <TableCell align="right">${item.price}</TableCell>
                       <TableCell align="right">
-                        <Button variant="contained" color="secondary">
+                        <Button
+                          variant="contained"
+                          color="secondary"
+                          onClick={() => handleDelete(item)}
+                        >
                           x
                         </Button>
                       </TableCell>

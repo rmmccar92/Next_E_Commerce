@@ -18,7 +18,7 @@ import axios from "axios";
 import { Store } from "../../utils/store";
 import Router from "next/router";
 export default function ProductPage(props) {
-  const { dispatch } = useContext(Store);
+  const { state, dispatch } = useContext(Store);
   const { product } = props;
   const classes = useStyles();
 
@@ -30,12 +30,17 @@ export default function ProductPage(props) {
     );
   }
   const addToCartHandler = async () => {
+    const itemInCart = state.cart.cartItems.find(
+      (item) => item._id === product._id
+    );
+    const quantity = itemInCart ? itemInCart.quantity + 1 : 1;
     const { data } = await axios.get(`/api/products/${product._id}`);
-    if (data.countInStock <= 0) {
+    if (data.countInStock < quantity) {
       // Change this to not use alert
       window.alert("Out of stock");
+      return;
     }
-    dispatch({ type: "ADD_TO_CART", payload: { ...product, quantity: 1 } });
+    dispatch({ type: "ADD_TO_CART", payload: { ...product, quantity } });
     Router.push("/cart");
   };
 
@@ -98,7 +103,11 @@ export default function ProductPage(props) {
                   </Grid>
                   <Grid item xs={6}>
                     <Typography>
-                      {product.countInStock > 0 ? "In Stock" : "Sold Out"}
+                      {product.countInStock > 0 ? (
+                        "In Stock"
+                      ) : (
+                        <Typography color="secondary">Sold Out.</Typography>
+                      )}
                     </Typography>
                   </Grid>
                 </Grid>
