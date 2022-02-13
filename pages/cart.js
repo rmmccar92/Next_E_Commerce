@@ -60,8 +60,9 @@ export default function CartPage() {
                             <Image
                               src={item.image}
                               alt={item.name}
-                              height={50}
-                              width={50}
+                              height={2}
+                              width={3}
+                              layout="responsive"
                             />
                           </Link>
                         </NextLink>
