@@ -1,4 +1,4 @@
-import React from "react";
+import { useContext } from "react";
 
 import Layout from "../../components/Layout";
 import NextLink from "next/link";
@@ -15,8 +15,11 @@ import useStyles from "../../utils/styles";
 import Image from "next/image";
 import db from "../../utils/db";
 import Product from "../../models/Products";
-
+import axios from "axios";
+import { Store } from "../../utils/store";
 export default function ProductPage(props) {
+  const { state, dispatch } = useContext(Store);
+  const { cart } = state;
   const { product } = props;
   const classes = useStyles();
 
@@ -27,6 +30,15 @@ export default function ProductPage(props) {
       </h1>
     );
   }
+  const addToCartHandler = async () => {
+    const { data } = await axios.get(`/api/products/${product._id}`);
+    if (data.countInStock <= 0) {
+      // Change this to not use alert
+      window.alert("Out of stock");
+    }
+    dispatch({ type: "ADD_TO_CART", payload: { ...product, quantity: 1 } });
+  };
+
   return (
     <Layout title={product.name} description={product.description}>
       <div className={classes.section}>
@@ -97,6 +109,7 @@ export default function ProductPage(props) {
                   fullWidth
                   variant="contained"
                   color="primary"
+                  onClick={addToCartHandler}
                 >
                   Add to Cart
                 </Button>
