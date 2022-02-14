@@ -22,6 +22,7 @@ import { Store } from "../utils/store";
 import NextLink from "next/link";
 import Image from "next/image";
 import axios from "axios";
+import Router from "next/router";
 
 function CartPage() {
   const { state, dispatch } = useContext(Store);
@@ -41,6 +42,10 @@ function CartPage() {
 
   const handleDelete = async (item) => {
     dispatch({ type: "DELETE_FROM_CART", payload: item });
+  };
+
+  const checkoutHandler = () => {
+    Router.push("/shipping");
   };
   return (
     <Layout title="Shopping Cart">
@@ -135,7 +140,12 @@ function CartPage() {
                   </Typography>
                 </ListItem>
                 <ListItem>
-                  <Button variant="contained" color="primary" fullWidth>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    fullWidth
+                    onClick={checkoutHandler}
+                  >
                     Checkout
                   </Button>
                 </ListItem>

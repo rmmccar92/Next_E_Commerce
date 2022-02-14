@@ -28,5 +28,10 @@ const useStyles = makeStyles({
     marginTop: 20,
     textAlign: "center",
   },
+
+  form: {
+    maxWidth: "45%",
+    margin: "0 auto",
+  },
 });
 export default useStyles;
