@@ -26,7 +26,7 @@ export default function Login() {
     if (userInfo) {
       router.push("/");
     }
-  }, []);
+  }, [router, userInfo]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const submitHandler = async (event) => {
@@ -79,7 +79,7 @@ export default function Login() {
           </ListItem>
           <ListItem>
             New Here?&nbsp;
-            <NextLink href={"/register"} passHref>
+            <NextLink href={`/register/?redirect=${redirect || "/"}`} passHref>
               <Link>Register Here!</Link>
             </NextLink>
           </ListItem>
