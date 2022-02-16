@@ -67,7 +67,7 @@ export default function Register() {
   };
 
   return (
-    <Layout title="Login">
+    <Layout title="Register">
       <form className={classes.form} onSubmit={handleSubmit(submitHandler)}>
         <Typography component="h1" variant="h1">
           Register
@@ -124,7 +124,7 @@ export default function Register() {
                       : ""
                   }
                   id="lastName"
-                  label="lastName"
+                  label="Last Name"
                   inputProps={{ type: "text" }}
                   {...field}
                 ></TextField>
