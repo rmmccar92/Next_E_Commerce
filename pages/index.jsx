@@ -12,7 +12,7 @@ import {
 import NextLink from "next/link";
 import db from "../utils/db";
 import Product from "../models/Products";
-import { Store } from "../utils/store";
+import { Store } from "../utils/globalStore";
 import { useContext } from "react";
 import axios from "axios";
 import Router from "next/router";

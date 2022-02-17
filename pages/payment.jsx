@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useState } from "react";
-import { Store } from "../utils/store";
+import { Store } from "../utils/globalStore";
 import Router from "next/router";
 import Cookies from "js-cookie";
 import Layout from "../components/Layout";

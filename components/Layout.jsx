@@ -17,7 +17,7 @@ import {
   MenuItem,
 } from "@material-ui/core";
 import useStyles from "../utils/styles";
-import { Store } from "../utils/store";
+import { Store } from "../utils/globalStore";
 import Cookies from "js-cookie";
 import Router from "next/router";
 

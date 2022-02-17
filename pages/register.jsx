@@ -12,7 +12,7 @@ import useStyles from "../utils/styles";
 import NextLink from "next/link";
 import axios from "axios";
 import { useRouter } from "next/router";
-import { Store } from "../utils/store";
+import { Store } from "../utils/globalStore";
 import Cookies from "js-cookie";
 import { Controller, useForm } from "react-hook-form";
 import { useSnackbar } from "notistack";

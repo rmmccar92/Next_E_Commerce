@@ -15,7 +15,7 @@ import Image from "next/image";
 import db from "../../utils/db";
 import Product from "../../models/Products";
 import axios from "axios";
-import { Store } from "../../utils/store";
+import { Store } from "../../utils/globalStore";
 import Router from "next/router";
 export default function ProductPage(props) {
   const { state, dispatch } = useContext(Store);

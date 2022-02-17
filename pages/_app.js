@@ -1,6 +1,6 @@
 import "../styles/globals.css";
 import { useEffect } from "react";
-import { StoreProvider } from "../utils/store";
+import { StoreProvider } from "../utils/globalStore";
 import { SnackbarProvider } from "notistack";
 
 function MyApp({ Component, pageProps }) {

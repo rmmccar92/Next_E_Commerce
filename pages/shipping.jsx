@@ -9,7 +9,7 @@ import React, { useEffect, useContext } from "react";
 import Layout from "../components/Layout";
 import useStyles from "../utils/styles";
 import { useRouter } from "next/router";
-import { Store } from "../utils/store";
+import { Store } from "../utils/globalStore";
 import Cookies from "js-cookie";
 import { Controller, useForm } from "react-hook-form";
 import CheckoutWizard from "../components/CheckoutWizard";
