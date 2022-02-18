@@ -1,6 +1,7 @@
 {
   "name": "next-e-commerce",
   "private": true,
+  "homepage": "https://next-e-commerce-q8si4j3e8-rmmccar92.vercel.app/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
