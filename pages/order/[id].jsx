@@ -111,7 +111,7 @@ function Order({ params }) {
       loadPayPalScript();
     }
   }, [order, successPay]);
-  const { closeSnackbar, enqueueSnackbar } = useSnackbar();
+  const { enqueueSnackbar } = useSnackbar();
   function createOrder(data, actions) {
     return actions.order
       .create({
