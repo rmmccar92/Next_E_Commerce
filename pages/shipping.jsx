@@ -64,7 +64,7 @@ export default function Shipping() {
       <CheckoutWizard activeStep={1} />
       <form className={classes.form} onSubmit={handleSubmit(submitHandler)}>
         <Typography component="h1" variant="h1">
-          Shipping Information
+          Shipping
         </Typography>
         <List>
           <ListItem>
