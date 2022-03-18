@@ -44,7 +44,7 @@ export default function Register() {
     closeSnackbar();
 
     if (password !== confirmPassword) {
-      enqueueSnackbar("Passwwords must match", { variant: "error" });
+      enqueueSnackbar("Passwords must match", { variant: "error" });
       return;
     }
     try {
