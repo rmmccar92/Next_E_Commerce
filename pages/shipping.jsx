@@ -13,8 +13,9 @@ import { Store } from "../utils/globalStore";
 import Cookies from "js-cookie";
 import { Controller, useForm } from "react-hook-form";
 import CheckoutWizard from "../components/CheckoutWizard";
+import dynamic from "next/dynamic";
 
-export default function Shipping() {
+const Shipping = () => {
   const {
     handleSubmit,
     control,
@@ -251,4 +252,6 @@ export default function Shipping() {
       </form>
     </Layout>
   );
-}
+};
+
+export default dynamic(() => Promise.resolve(Shipping), { ssr: false });
