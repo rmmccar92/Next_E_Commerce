@@ -12,7 +12,6 @@ handler.get(async (req, res) => {
   await Product.insertMany(data.products);
   await User.deleteMany();
   await User.insertMany(data.users);
-  await db.disconnect();
   res.send({ message: "db seeded" });
 });
 
