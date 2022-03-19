@@ -22,7 +22,6 @@ handler.put(async (req, res) => {
     const paidOrder = await order.save();
     res.send({ message: "order paid.", order: paidOrder });
   } else {
-    await db.disconnect();
     res.status(404).send({ message: "order not found." });
   }
 });
