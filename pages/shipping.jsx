@@ -34,12 +34,12 @@ const Shipping = () => {
     if (!userInfo) {
       router.push("/login?redirect=/shipping");
     }
-    setValue("firstName", shippingAddress.firstName);
-    setValue("lastName", shippingAddress.lastName);
-    setValue("address", shippingAddress.address);
-    setValue("city", shippingAddress.city);
-    setValue("country", shippingAddress.country);
-    setValue("zipCode", shippingAddress.zipCode);
+    setValue("firstName", shippingAddress?.firstName);
+    setValue("lastName", shippingAddress?.lastName);
+    setValue("address", shippingAddress?.address);
+    setValue("city", shippingAddress?.city);
+    setValue("country", shippingAddress?.country);
+    setValue("zipCode", shippingAddress?.zipCode);
   }, [userInfo, router, shippingAddress, setValue]);
   const submitHandler = ({
     firstName,
